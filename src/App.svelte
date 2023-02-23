@@ -19,7 +19,7 @@
 	<Footer />
 </Router>
 
-<div id="capa-opaca" class="d-none"></div>
+<div id="capa-opaca" class="d-none" />
 <div
 	id="spinner-loading"
 	class="position-absolute top-50 start-50 translate-middle d-none"
@@ -37,7 +37,7 @@
 		aria-atomic="true"
 	>
 		<div class="d-flex">
-			<div class="toast-body">Operación realizada con éxito.</div>
+			<div class="toast-body"></div>
 			<button
 				type="button"
 				class="btn-close btn-close-white me-2 m-auto"
@@ -54,7 +54,7 @@
 		aria-atomic="true"
 	>
 		<div class="d-flex">
-			<div class="toast-body">La operación no se ha podido realizar.</div>
+			<div class="toast-body"></div>
 			<button
 				type="button"
 				class="btn-close btn-close-white me-2 m-auto"

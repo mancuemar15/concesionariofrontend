@@ -42,7 +42,7 @@
 </nav>
 
 <style>
-    .logo {
+    :global(.logo) {
         width: 100px;
     }
 

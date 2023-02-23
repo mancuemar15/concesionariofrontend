@@ -11,34 +11,42 @@
     let clase = "";
 
     function insertar() {
-        const opciones = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(documento),
-        };
-        fetch(url, opciones)
-            .then((response) => response.json())
-            .then((data) => {
-                $jsonData = [...$jsonData, data];
-                ok();
-            })
-            .catch(() => ko());
+        if (comprobarDocumentoValido()) {
+            const opciones = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(documento),
+            };
+            fetch(url, opciones)
+                .then((response) => response.json())
+                .then((data) => {
+                    $jsonData = [...$jsonData, data];
+                    ok("Se ha insertado correctamente.");
+                })
+                .catch(() => ko("No se ha podido insertar."));
+        } else {
+            ko("Faltan datos.");
+        }
     }
 
     function modificar() {
-        const opciones = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(documento),
-        };
-        fetch(`${url}/${documento._id}`, opciones)
-            .then((response) => response.json())
-            .then(() => ok())
-            .catch(() => ko());
+        if (comprobarDocumentoValido()) {
+            const opciones = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(documento),
+            };
+            fetch(`${url}/${documento._id}`, opciones)
+                .then((response) => response.json())
+                .then(() => ok("Se ha modificado correctamente."))
+                .catch(() => ko("No se ha podido modificar."));
+        } else {
+            ko("No puede haber campos vacíos.");
+        }
     }
 
     function eliminar() {
@@ -51,21 +59,40 @@
                 $jsonData = $jsonData.filter(
                     (documento) => documento._id !== data._id
                 );
-                ok();
+                ok("Se ha eliminado correctamente.");
             })
-            .catch(() => ko());
+            .catch(() => {
+                ko("No se ha podido eliminar.");
+            });
     }
 
-    const ok = () => {
+    const comprobarDocumentoValido = () => {
+        let documentoValido = false;
+
+        if (
+            Object.keys(documento).length > 1 &&
+            Object.values(documento).every((x) => x !== undefined && x != "")
+        ) {
+            documentoValido = true;
+        }
+
+        return documentoValido;
+    };
+
+    const ok = (mensaje = "Operación realizada con éxito") => {
         const toastAlerta = document.getElementById("OK");
         const toast = new bootstrap.Toast(toastAlerta);
+
+        document.querySelector("#OK .toast-body").innerHTML = mensaje;
 
         toast.show();
     };
 
-    const ko = () => {
+    const ko = (mensaje = "No se ha podido realizar la operación.") => {
         const toastAlerta = document.getElementById("KO");
         const toast = new bootstrap.Toast(toastAlerta);
+
+        document.querySelector("#KO .toast-body").innerHTML = mensaje;
 
         toast.show();
     };

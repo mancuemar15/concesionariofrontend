@@ -37,6 +37,7 @@
         </Coche>
     </div>
 </div>
+<hr>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-auto g-3">
     {#each cochesFiltrados as coche}
         <div class="col d-flex justify-content-center d-lg-block">
