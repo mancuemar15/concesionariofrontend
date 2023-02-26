@@ -35,3 +35,13 @@
         </div>
     </div>
 </footer>
+
+<style>
+    a {
+        color: #7db2ff;
+    }
+
+    a:hover {
+        color: #3b8aff;
+    }
+</style>
