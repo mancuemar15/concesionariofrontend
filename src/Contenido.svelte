@@ -5,7 +5,7 @@
     import Vendedores from "./Vendedores.svelte";
 </script>
 
-<main class="container-fluid px-3 px-md-4">
+<main>
     <Route path="/" component={Inicio} />
     <Route path="/vendedores" component={Vendedores} />
     <Route path="/coches" component={Coches} />

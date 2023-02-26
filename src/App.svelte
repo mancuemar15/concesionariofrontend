@@ -30,7 +30,7 @@
 	class="toast-container position-fixed top-0 start-50 translate-middle-x p-3"
 >
 	<div
-		id="OK"
+		id="toast-alerta"
 		class="toast align-items-center text-bg-success border-0"
 		role="alert"
 		aria-live="assertive"
@@ -46,7 +46,7 @@
 			/>
 		</div>
 	</div>
-	<div
+	<!-- <div
 		id="KO"
 		class="toast align-items-center text-bg-danger border-0"
 		role="alert"
@@ -62,7 +62,7 @@
 				aria-label="Close"
 			/>
 		</div>
-	</div>
+	</div> -->
 </div>
 
 <style>

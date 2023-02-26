@@ -7,7 +7,7 @@
         class="col-md-6 d-flex justify-content-center align-items-center d-lg-block"
     >
         <div>
-            <label for="buscador" class="d-inline">Buscar:</label>
+            <label for="buscador" class="d-inline text-light">Buscar:</label>
             <input
                 type="search"
                 class="form-control d-inline"

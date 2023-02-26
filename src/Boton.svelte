@@ -1,6 +1,7 @@
 <script>
     import { getContext, onMount } from "svelte";
     import { jsonData } from "./store";
+    import { ok, ko } from "./helpers";
 
     export let tipo = "insertar";
     export let documento = {};
@@ -66,36 +67,18 @@
             });
     }
 
-    const comprobarDocumentoValido = () => {
+    function comprobarDocumentoValido() {
         let documentoValido = false;
 
         if (
-            Object.keys(documento).length > 1 &&
-            Object.values(documento).every((x) => x !== undefined && x != "")
+            Object.keys(documento).length > 4 &&
+            Object.values(documento).every((x) => x === 0 || Boolean(x))
         ) {
             documentoValido = true;
         }
 
         return documentoValido;
-    };
-
-    const ok = (mensaje = "Operación realizada con éxito") => {
-        const toastAlerta = document.getElementById("OK");
-        const toast = new bootstrap.Toast(toastAlerta);
-
-        document.querySelector("#OK .toast-body").innerHTML = mensaje;
-
-        toast.show();
-    };
-
-    const ko = (mensaje = "No se ha podido realizar la operación.") => {
-        const toastAlerta = document.getElementById("KO");
-        const toast = new bootstrap.Toast(toastAlerta);
-
-        document.querySelector("#KO .toast-body").innerHTML = mensaje;
-
-        toast.show();
-    };
+    }
 
     const handler = (() => {
         switch (tipo) {
