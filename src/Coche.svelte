@@ -14,7 +14,7 @@
             <div class="col-6">
                 <input
                     type="text"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="marca"
                     placeholder="Marca"
                     bind:value={coche.marca}
@@ -23,7 +23,7 @@
             <div class="col-6">
                 <input
                     type="text"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="modelo"
                     placeholder="Modelo"
                     bind:value={coche.modelo}
@@ -32,7 +32,7 @@
             <div class="col-6">
                 <input
                     type="number"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="numeroIdentificacion"
                     placeholder="Nº id"
                     min="0"
@@ -43,7 +43,7 @@
             <div class="col-6">
                 <input
                     type="text"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="combustible"
                     placeholder="Combustible"
                     bind:value={coche.combustible}
@@ -51,10 +51,10 @@
             </div>
             <div class="col-12">
                 <div class="row">
-                    <div class="col-7">
+                    <div class="col d-flex justify-content-center">
                         <input
                             type="number"
-                            class="form-control w-100 border-0 m-0 text-end pe-0"
+                            class="w-50 border-0 m-0 text-center pe-0"
                             name="precio"
                             placeholder="Precio"
                             min="0"
@@ -62,8 +62,8 @@
                             step="0.01"
                             bind:value={coche.precio}
                         />
+                        <span class="d-flex align-items-center p-0">€</span>
                     </div>
-                    <span class="col-1 d-flex align-items-center p-0">€</span>
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-evenly pt-2">
@@ -91,11 +91,27 @@
 
     input {
         background-color: transparent;
+        border-radius: 0;
+        border-bottom: 1px solid black !important;
+        padding: 6px 6px;
+    }
+
+    input:focus {
+        outline: none;
+        background-color: rgba(6, 72, 179, 0.1);
+    }
+
+    input:invalid {
+        background-color: lightpink !important;
     }
 
     @media (min-width: 1200px) {
         .card {
             width: 21rem;
+        }
+
+        input {
+            padding: 6px 12px;
         }
     }
 </style>

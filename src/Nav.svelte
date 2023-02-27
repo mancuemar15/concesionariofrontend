@@ -6,6 +6,10 @@
         { pagina: "Vendedores", ruta: "/vendedores" },
         { pagina: "Coches", ruta: "/coches" },
     ];
+
+    function getProps({ isCurrent }) {
+        return { className: isCurrent ? "active" : null };
+    }
 </script>
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -15,6 +19,8 @@
                 class="logo"
                 src="img/logo-concesionario.svg"
                 alt="Logo del concesionario"
+                width="100"
+                height="34"
             />
         </Link>
         <button
@@ -24,6 +30,7 @@
             data-bs-target="#contenidoNavbar"
             aria-controls="contenidoNavbar"
             aria-expanded="false"
+            aria-label="Menú de navegación"
         >
             <span class="navbar-toggler-icon" />
         </button>
@@ -33,8 +40,10 @@
             >
                 {#each opcionesNav as opcion}
                     <li>
-                        <Link class="nav-link text-white text-blue position-relative" to={opcion.ruta}
-                            >{opcion.pagina}</Link
+                        <Link
+                            class="nav-link text-white text-blue position-relative"
+                            to={opcion.ruta}
+                            {getProps}>{opcion.pagina}</Link
                         >
                     </li>
                 {/each}
@@ -46,10 +55,6 @@
 <style>
     nav {
         background-color: #0648b3 !important;
-    }
-
-    :global(.logo) {
-        width: 100px;
     }
 
     :global(.nav-link) {
@@ -72,9 +77,13 @@
     }
 
     :global(#contenidoNavbar li > a:hover::before),
-    :global(#contenidoNavbar li > a.active::before) {
+    :global(#contenidoNavbar li > a[className="active"]::before) {
         transform: scale(1, 1);
         transform-origin: left center;
+    }
+
+    :global(#contenidoNavbar li > a[className="active"]) {
+        font-weight: 600;
     }
 
     @media (min-width: 576px) {
@@ -95,8 +104,15 @@
             font-weight: 500;
         }
 
-        :global(.text-blue:hover) {
-            color: #0f1e38 !important;
+        :global(.text-blue:hover),
+        :global(.text-blue[className="active"]) {
+            font-weight: 700 !important;
+        }
+
+        :global(#contenidoNavbar li > a::before) {
+            background-color: #0648b3;
+            width: 100%;
+            bottom: 4px;
         }
     }
 </style>

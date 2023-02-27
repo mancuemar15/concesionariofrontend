@@ -1,7 +1,8 @@
 <script>
     import { getContext, onMount } from "svelte";
-    import { jsonData } from "./store";
-    import { ok, ko } from "./helpers";
+    import { jsonData } from "./store.js";
+    import { ok, ko } from "./helpers.js";
+    import { validarVendedor, validarCoche } from "./validators.js";
 
     export let tipo = "insertar";
     export let documento = {};
@@ -28,7 +29,7 @@
                 })
                 .catch(() => ko("No se ha podido insertar."));
         } else {
-            ko("Faltan datos.");
+            ko("Datos incorrectos o vacíos. Por favor, revise los datos.");
         }
     }
 
@@ -46,7 +47,7 @@
                 .then(() => ok("Se ha modificado correctamente."))
                 .catch(() => ko("No se ha podido modificar."));
         } else {
-            ko("No puede haber campos vacíos.");
+            ko("Datos incorrectos o vacíos. Por favor, revise los datos.");
         }
     }
 
@@ -68,16 +69,23 @@
     }
 
     function comprobarDocumentoValido() {
-        let documentoValido = false;
-
         if (
             Object.keys(documento).length > 4 &&
-            Object.values(documento).every((x) => x === 0 || Boolean(x))
+            Object.values(documento).every((x) => x === 0 || Boolean(x)) &&
+            handlerValidador(documento)
         ) {
-            documentoValido = true;
+            return true;
         }
+        return false;
+    }
 
-        return documentoValido;
+    function handlerValidador(documento) {
+        switch (coleccion) {
+            case "vendedores":
+                return validarVendedor(documento);
+            case "coches":
+                return validarCoche(documento);
+        }
     }
 
     const handler = (() => {

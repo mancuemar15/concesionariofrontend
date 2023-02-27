@@ -36,7 +36,7 @@
                     <div class="icono display-6 rounded-circle mb-3">
                         <i class="bi bi-house-door-fill" />
                     </div>
-                    <h4>Inicio</h4>
+                    <p class="h4">Inicio</p>
                     <p class="text-center">
                         Página de inicio de la aplicación web
                     </p>
@@ -48,7 +48,8 @@
                                 <i class="bi bi-check-circle text-success" />
                             </div>
                             <div class="d-flex align-items-center">
-                                Información sobre las s del concesionario
+                                Información sobre las secciones del
+                                concesionario
                             </div>
                         </li>
                     </ul>
@@ -66,7 +67,7 @@
                     <div class="icono display-6 rounded-circle mb-3">
                         <i class="bi bi-person-fill" />
                     </div>
-                    <h4>Vendedores</h4>
+                    <p class="h4">Vendedores</p>
                     <p class="text-center">
                         Sección de vendedores del concesionario
                     </p>
@@ -96,7 +97,7 @@
                     <div class="icono display-6 rounded-circle mb-3">
                         <i class="bi bi-car-front-fill" />
                     </div>
-                    <h4>Coches</h4>
+                    <p class="h4">Coches</p>
                     <p class="text-center">
                         Sección de coches del concesionario
                     </p>

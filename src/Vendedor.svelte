@@ -14,7 +14,7 @@
             <div class="col-12">
                 <input
                     type="text"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="nombre"
                     placeholder="Nombre"
                     bind:value={vendedor.nombre}
@@ -23,31 +23,31 @@
             <div class="col-4">
                 <input
                     type="number"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="numeroIdentificacion"
                     placeholder="Nº id"
                     min="0"
-                    max="5"
+                    max="99999"
                     step="1"
                     bind:value={vendedor.numeroIdentificacion}
                 />
             </div>
-            <div class="col-5">
+            <div class="col-4">
                 <input
                     type="number"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="comision"
-                    placeholder="Comisión"
+                    placeholder="% venta"
                     min="0"
                     step="1"
-                    max="20"
+                    max="25"
                     bind:value={vendedor.comision}
                 />
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <input
                     type="number"
-                    class="form-control w-100 border-0 m-0"
+                    class="w-100 border-0 m-0"
                     name="vehiculosVendidos"
                     placeholder="Ventas"
                     min="0"
@@ -57,8 +57,8 @@
             </div>
             <div class="col-12">
                 <input
-                    type="text"
-                    class="form-control w-100 border-0 m-0"
+                    type="email"
+                    class="w-100 border-0 m-0"
                     name="email"
                     placeholder="Email"
                     bind:value={vendedor.email}
@@ -89,16 +89,27 @@
 
     input {
         background-color: transparent;
+        border-radius: 0;
+        border-bottom: 1px solid black !important;
+        padding: 6px 6px;
     }
 
-    input:required:invalid,
-    input:focus:invalid {
-        background-color: lightpink;
+    input:focus {
+        outline: none;
+        background-color: rgba(6, 72, 179, 0.1);
+    }
+
+    input:invalid {
+        background-color: lightpink !important;
     }
 
     @media (min-width: 1200px) {
         .card {
             width: 21rem;
+        }
+
+        input {
+            padding: 6px 12px;
         }
     }
 </style>
