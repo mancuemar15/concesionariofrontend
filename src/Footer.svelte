@@ -2,7 +2,7 @@
     import { Link } from "svelte-routing";
 </script>
 
-<footer class="py-4 py-md-2 my-4 bg-dark">
+<footer class="py-4 py-md-2 mt-4 bg-dark">
     <div class="container">
         <div class="row">
             <div

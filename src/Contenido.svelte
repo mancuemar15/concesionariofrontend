@@ -10,3 +10,9 @@
     <Route path="/vendedores" component={Vendedores} />
     <Route path="/coches" component={Coches} />
 </main>
+
+<style>
+    main {
+        min-height: 100%;
+    }
+</style>
